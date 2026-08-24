@@ -12,7 +12,10 @@ public static class DependencyInjection
     {
         services.AddDbContext<PortfolioDBContext>(options =>
         {
-            options.UseNpgsql("Host=localhost;Port=5432;Database=portfolioDB;Username=fiesta_admin;Password=fiesta_admin_password");
+            options.UseNpgsql("Host=localhost;Port=5432;Database=portfolioDB;Username=fiesta_admin;Password=fiesta_admin_password"
+                , options => {
+                    options.MaxBatchSize(150);
+                });
         });
 
         return services;
