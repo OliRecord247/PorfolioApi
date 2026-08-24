@@ -8,14 +8,13 @@ namespace Data;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddDatabase(this IServiceCollection services)
+    public static IServiceCollection AddDatabase(this IServiceCollection services, string connectionStr)
     {
-        services.AddDbContext<PortfolioDBContext>(options =>
+        services.AddDbContext<PortfolioDBContext>(contextOptions =>
         {
-            options.UseNpgsql("Host=localhost;Port=5432;Database=portfolioDB;Username=fiesta_admin;Password=fiesta_admin_password"
-                , options => {
-                    options.MaxBatchSize(150);
-                });
+            contextOptions.UseNpgsql(connectionStr, options => {
+                options.MaxBatchSize(150);
+            });
         });
 
         return services;
