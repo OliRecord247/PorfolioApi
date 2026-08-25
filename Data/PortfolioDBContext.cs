@@ -10,6 +10,7 @@ namespace Data;
 public class PortfolioDBContext : DbContext
 {
     public DbSet<Skill> Skills => Set<Skill>();
+    public DbSet<Experience> Experiences => Set<Experience>();
 
     public PortfolioDBContext(DbContextOptions<PortfolioDBContext> options) : base(options)
     {
@@ -19,5 +20,6 @@ public class PortfolioDBContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new SkillMapping());
+        modelBuilder.ApplyConfiguration(new ExperienceMapping());
     }
 }

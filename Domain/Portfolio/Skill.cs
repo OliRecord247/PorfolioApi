@@ -11,4 +11,5 @@ public class Skill
     public SkillLevel Level { get; set; }
     public required string Image { get; set; }
     public List<string> Tags { get; set; } = [];
+    public List<Experience> Experiences { get; set; }
 }
