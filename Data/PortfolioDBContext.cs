@@ -11,6 +11,7 @@ public class PortfolioDBContext : DbContext
 {
     public DbSet<Skill> Skills => Set<Skill>();
     public DbSet<Experience> Experiences => Set<Experience>();
+    public DbSet<Course> Courses => Set<Course>();
 
     public PortfolioDBContext(DbContextOptions<PortfolioDBContext> options) : base(options)
     {
@@ -21,5 +22,6 @@ public class PortfolioDBContext : DbContext
     {
         modelBuilder.ApplyConfiguration(new SkillMapping());
         modelBuilder.ApplyConfiguration(new ExperienceMapping());
+        modelBuilder.ApplyConfiguration(new CourseMapping());
     }
 }
